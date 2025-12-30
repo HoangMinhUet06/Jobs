@@ -17,4 +17,9 @@ public class UserService {
     public User handleCreateUser(User user) {
         return this.userRepository.save(user); // Save to MySQL
     }
+
+    // Handle deleting a user by ID
+    public void handleDeleteUser(long id) {
+        this.userRepository.deleteById(id);
+    }
 }
