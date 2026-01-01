@@ -29,7 +29,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
 
     // ===== OAUTH2  =====
-    //implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
+    implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
 
     // ===== DB =====
     runtimeOnly("com.mysql:mysql-connector-j")

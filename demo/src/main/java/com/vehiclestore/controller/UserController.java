@@ -34,11 +34,7 @@ public class UserController {
     public ResponseEntity<User> createNewUser(
             @RequestBody User postManUser) {
 
-        // Hash password before saving, get the username and password hash, then return
-        // new user
-        String hashPassword = this.passwordEncoder.encode(postManUser.getPassword());
-        postManUser.setPassword(hashPassword);
-
+        // UserService will handle password hashing
         User newUser = this.userService.handleCreateUser(postManUser);
         return ResponseEntity.status(HttpStatus.CREATED).body(newUser);
     }
