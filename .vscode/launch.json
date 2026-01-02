@@ -2,11 +2,11 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Spring Boot-DemoApplication<demo>",
+            "name": "Spring Boot-VehicleStoreApplication",
             "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "mainClass": "com.vehiclestore.DemoApplication",
-            "projectName": "demo",
+            "cwd": "${workspaceFolder}/backend",
+            "mainClass": "com.vehiclestore.VehicleStoreApplication",
+            "projectName": "backend",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         }
