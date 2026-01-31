@@ -1,4 +1,4 @@
-package com.vehiclestore.config;
+package com.jobs.config;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -10,7 +10,7 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.vehiclestore.domain.RestResponse;
+import com.jobs.domain.RestResponse;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

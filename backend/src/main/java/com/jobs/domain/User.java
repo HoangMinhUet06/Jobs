@@ -1,4 +1,4 @@
-package com.vehiclestore.domain;
+package com.jobs.domain;
 
 import jakarta.persistence.*;
 

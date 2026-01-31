@@ -1,6 +1,6 @@
-package com.vehiclestore.controller;
+package com.jobs.controller;
 
-import com.vehiclestore.util.error.IdInvalidException;
+import com.jobs.util.error.IdInvalidException;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 

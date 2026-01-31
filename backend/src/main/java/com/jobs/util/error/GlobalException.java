@@ -1,4 +1,4 @@
-package com.vehiclestore.util.error;
+package com.jobs.util.error;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.vehiclestore.domain.RestResponse;
+import com.jobs.domain.RestResponse;
 
 //Catch exceptions from all controllers and format error responses consistently
 //When an exception occurs, look in the class containing `@RestControllerAdvice` and call the correct handler(@ExceptionHandler)

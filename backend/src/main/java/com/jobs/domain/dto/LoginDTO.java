@@ -1,4 +1,4 @@
-package com.vehiclestore.domain.dto;
+package com.jobs.domain.dto;
 
 import jakarta.validation.constraints.NotBlank;
 

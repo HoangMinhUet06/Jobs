@@ -1,4 +1,4 @@
-package com.vehiclestore.util;
+package com.jobs.util;
 
 import org.springframework.http.MediaType;
 import org.springframework.core.MethodParameter;
@@ -8,7 +8,7 @@ import org.springframework.http.server.ServletServerHttpResponse;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
-import com.vehiclestore.domain.RestResponse;
+import com.jobs.domain.RestResponse;
 
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletResponse;

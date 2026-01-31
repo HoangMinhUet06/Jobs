@@ -1,6 +1,6 @@
-package com.vehiclestore.service;
+package com.jobs.service;
 
-import com.vehiclestore.domain.User;
+import com.jobs.domain.User;
 
 import java.util.Collections;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -37,7 +37,7 @@ public class UserDetailsCustom implements UserDetailsService {
 
         // 2. Convert our User entity to Spring Security's User object
         // IMPORTANT: There are 2 different User classes!
-        // - com.vehiclestore.domain.User = Our entity (database)
+        // - com.jobs.domain.User = Our entity (database)
         // - org.springframework.security.core.userdetails.User = Spring Security's User
         // We use full package name to avoid confusion
         return new org.springframework.security.core.userdetails.User(

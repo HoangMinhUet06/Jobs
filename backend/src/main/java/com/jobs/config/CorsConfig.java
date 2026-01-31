@@ -1,4 +1,4 @@
-package com.vehiclestore.config;
+package com.jobs.config;
 
 import java.util.Arrays;
 

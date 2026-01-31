@@ -1,4 +1,4 @@
-package com.vehiclestore.domain.dto;
+package com.jobs.domain.dto;
 
 public class ResponseLoginDTO {
     private String accessToken;

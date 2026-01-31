@@ -1,8 +1,8 @@
-package com.vehiclestore.repository;
+package com.jobs.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import com.vehiclestore.domain.User;
+import com.jobs.domain.User;
 
 // Repository layer - Direct communication with database
 // Extends JpaRepository<Entity, PrimaryKeyType> to get CRUD methods for free:

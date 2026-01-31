@@ -1,4 +1,4 @@
-package com.vehiclestore.util.error;
+package com.jobs.util.error;
 
 // Custom Exception for invalid ID errors
 // Thrown when user provides invalid ID (negative, zero, non-existent)

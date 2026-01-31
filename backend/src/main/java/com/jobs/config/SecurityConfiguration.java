@@ -1,4 +1,4 @@
-package com.vehiclestore.config;
+package com.jobs.config;
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
@@ -20,16 +20,13 @@ import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.security.oauth2.jwt.NimbusJwtEncoder;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
 import org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter;
-import org.springframework.security.oauth2.server.resource.web.BearerTokenAuthenticationEntryPoint;
-import org.springframework.security.oauth2.server.resource.web.access.BearerTokenAccessDeniedHandler;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.servlet.util.matcher.MvcRequestMatcher;
 import org.springframework.web.servlet.handler.HandlerMappingIntrospector;
 
 import com.nimbusds.jose.jwk.source.ImmutableSecret;
 import com.nimbusds.jose.util.Base64;
-import com.vehiclestore.config.CustomAuthenticationEntryPoint;
-import com.vehiclestore.util.SecurityUtil;
+import com.jobs.util.SecurityUtil;
 
 /**
  * =============================================================================
@@ -70,7 +67,7 @@ public class SecurityConfiguration {
      *        - Signing JWT tokens (JwtEncoder)
      *        - Verifying JWT tokens (JwtDecoder)
      */
-    @Value("${vehcilestore.jwt.base64-secret}")
+    @Value("${jobs.jwt.base64-secret}")
     private String jwtKey;
 
     /**
@@ -217,7 +214,7 @@ public class SecurityConfiguration {
                         authz -> authz
                                 // Public endpoints - no authentication required
                                 // Anyone can access "/" and "/login"
-                                .requestMatchers("/", "/login").permitAll()
+                                .requestMatchers("/", "/login", "/companies").permitAll()
 
                                 // All other endpoints require authentication
                                 // User must provide valid JWT token

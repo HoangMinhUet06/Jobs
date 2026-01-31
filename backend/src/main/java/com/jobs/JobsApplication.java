@@ -1,4 +1,4 @@
-package com.vehiclestore;
+package com.jobs;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,7 +16,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 // })
 
 @SpringBootApplication
-public class VehicleStoreApplication {
+public class JobsApplication {
 
     // Application starts here
     // SpringApplication.run() bootstraps the application:
@@ -24,7 +24,7 @@ public class VehicleStoreApplication {
     // 2. Scan components
     // 3. Start embedded Tomcat server
     public static void main(String[] args) {
-        SpringApplication.run(VehicleStoreApplication.class, args);
+        SpringApplication.run(JobsApplication.class, args);
     }
 
 }

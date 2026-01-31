@@ -1,4 +1,4 @@
-package com.vehiclestore.controller;
+package com.jobs.controller;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -9,10 +9,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nimbusds.jose.proc.SecurityContext;
-import com.vehiclestore.domain.dto.LoginDTO;
-import com.vehiclestore.domain.dto.ResponseLoginDTO;
-import com.vehiclestore.util.SecurityUtil;
+import com.jobs.domain.dto.LoginDTO;
+import com.jobs.domain.dto.ResponseLoginDTO;
+import com.jobs.util.SecurityUtil;
 
 import jakarta.validation.Valid;
 
@@ -23,12 +22,12 @@ public class AuthController {
     // AuthenticationManagerBuilder - Spring's tool to build and access
     // AuthenticationManager
     // AuthenticationManager is responsible for authenticating users
-    private final AuthenticationManagerBuilder authenticationMangerBuilder;
+    private final AuthenticationManagerBuilder authenticationManagerBuilder;
 
     private final SecurityUtil securityUtil;
 
-    public AuthController(AuthenticationManagerBuilder authenticationMangerBuilder, SecurityUtil securityUtil) {
-        this.authenticationMangerBuilder = authenticationMangerBuilder;
+    public AuthController(AuthenticationManagerBuilder authenticationManagerBuilder, SecurityUtil securityUtil) {
+        this.authenticationManagerBuilder = authenticationManagerBuilder;
         this.securityUtil = securityUtil;
     }
 
@@ -56,7 +55,7 @@ public class AuthController {
         // UserDetailCustom.loadUserByUsername()
         // If password matches: returns authenticated Authentication object
         // If password wrong: throws BadCredentialsException
-        Authentication authentication = authenticationMangerBuilder.getObject().authenticate(authenticationToken);
+        Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
 
         // Step 3: If we reach here, authentication was successful
         // Create a token

@@ -1,4 +1,4 @@
-package com.vehiclestore.domain;
+package com.jobs.domain;
 
 // Generic REST API response wrapper - All API responses use this format
 // Provides consistent response structure for frontend:

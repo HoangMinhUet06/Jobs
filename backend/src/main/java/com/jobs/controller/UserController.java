@@ -1,10 +1,10 @@
-package com.vehiclestore.controller;
+package com.jobs.controller;
 
 import java.util.List;
 
-import com.vehiclestore.util.error.IdInvalidException;
-import com.vehiclestore.service.UserService;
-import com.vehiclestore.domain.User;
+import com.jobs.util.error.IdInvalidException;
+import com.jobs.service.UserService;
+import com.jobs.domain.User;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
