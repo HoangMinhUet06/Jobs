@@ -1,5 +1,7 @@
 package com.jobs.service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.jobs.repository.UserRepository;
@@ -37,8 +39,9 @@ public class UserService {
     }
 
     // Handle get all users
-    public List<User> handleGetAllUsers() {
-        return this.userRepository.findAll();
+    public List<User> handleGetAllUsers(Pageable pageable) {
+        Page<User> pageUser = this.userRepository.findAll(pageable);
+        return pageUser.getContent();
     }
 
     // Handle update user details

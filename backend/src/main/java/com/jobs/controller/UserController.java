@@ -1,11 +1,14 @@
 package com.jobs.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.jobs.util.error.IdInvalidException;
 import com.jobs.service.UserService;
 import com.jobs.domain.User;
 
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 // REST Controller for User CRUD operations
@@ -66,9 +70,17 @@ public class UserController {
 
     // GET /users - Get all users
     @GetMapping("/users")
-    public ResponseEntity<List<User>> getAllUsers() {
-        List<User> users = this.userService.handleGetAllUsers();
-        return ResponseEntity.status(HttpStatus.OK).body(users);
+    public ResponseEntity<List<User>> getAllUsers(
+            @RequestParam("current") Optional<String> currentOptional,
+            @RequestParam("pageSize") Optional<String> pageSizeOptional) {
+
+        String currentString = currentOptional.isPresent() ? currentOptional.get() : "";
+        String pageSizeString = pageSizeOptional.isPresent() ? pageSizeOptional.get() : "";
+
+        int current = Integer.parseInt(currentString) - 1;
+        int pageSize = Integer.parseInt(pageSizeString);
+        Pageable pageable = PageRequest.of(current, pageSize);
+        return ResponseEntity.status(HttpStatus.OK).body(this.userService.handleGetAllUsers(pageable));
     }
 
     // PUT /users - Update existing user
