@@ -6,8 +6,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.jobs.repository.UserRepository;
 import com.jobs.domain.User;
-
-import java.util.List;
+import com.jobs.domain.dto.Meta;
+import com.jobs.domain.dto.ResultPaginationDTO;
 
 @Service
 public class UserService {
@@ -39,9 +39,21 @@ public class UserService {
     }
 
     // Handle get all users
-    public List<User> handleGetAllUsers(Pageable pageable) {
+    public ResultPaginationDTO handleGetAllUsers(Pageable pageable) {
         Page<User> pageUser = this.userRepository.findAll(pageable);
-        return pageUser.getContent();
+        ResultPaginationDTO resultPaginationDTO = new ResultPaginationDTO();
+        Meta meta = new Meta();
+
+        meta.setPage(pageable.getPageNumber());
+        meta.setPageSize(pageable.getPageSize());
+
+        meta.setPages(pageUser.getTotalPages());
+        meta.setTotal(pageUser.getTotalElements());
+
+        resultPaginationDTO.setMeta(meta);
+        resultPaginationDTO.setResult(pageUser.getContent());
+
+        return resultPaginationDTO;
     }
 
     // Handle update user details

@@ -1,11 +1,14 @@
 package com.jobs.service;
 
-import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import com.jobs.domain.Company;
+import com.jobs.domain.dto.Meta;
+import com.jobs.domain.dto.ResultPaginationDTO;
 import com.jobs.repository.CompanyRepository;
 
 @Service
@@ -21,8 +24,25 @@ public class CompanyService {
         return this.companyRepository.save(company);
     }
 
-    public List<Company> handleGetCompany() {
-        return this.companyRepository.findAll();
+    public Company handleGetCompanyById(Long id) {
+        return this.companyRepository.findById(id).orElse(null);
+    }
+
+    public ResultPaginationDTO handleGetAllCompanies(Pageable pageable) {
+        Page<Company> pageCompany = this.companyRepository.findAll(pageable);
+        ResultPaginationDTO resultPaginationDTO = new ResultPaginationDTO();
+        Meta meta = new Meta();
+        meta.setPage(pageable.getPageNumber());
+        meta.setPageSize(pageable.getPageSize());
+
+        meta.setPages(pageCompany.getTotalPages());
+        meta.setTotal(pageCompany.getTotalElements());
+
+        resultPaginationDTO.setMeta(meta);
+        resultPaginationDTO.setResult(pageCompany.getContent());
+
+        return resultPaginationDTO;
+
     }
 
     public Company handleUpdateCompany(Company company) {

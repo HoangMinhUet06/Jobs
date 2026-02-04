@@ -6,6 +6,7 @@ import java.util.Optional;
 import com.jobs.util.error.IdInvalidException;
 import com.jobs.service.UserService;
 import com.jobs.domain.User;
+import com.jobs.domain.dto.ResultPaginationDTO;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.PageRequest;
@@ -70,7 +71,7 @@ public class UserController {
 
     // GET /users - Get all users
     @GetMapping("/users")
-    public ResponseEntity<List<User>> getAllUsers(
+    public ResponseEntity<ResultPaginationDTO> getAllUsers(
             @RequestParam("current") Optional<String> currentOptional,
             @RequestParam("pageSize") Optional<String> pageSizeOptional) {
 
